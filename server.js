@@ -1,5 +1,7 @@
 // Require Modules
 const express = require('express');
+// Imports the index router:
+const indexRouter = require('./routes/index');
 
 // Create the Express App
 const app = express();
@@ -13,10 +15,7 @@ app.set('view engine', 'ejs');
 // Mount Middleware (app.use)
 
 
-// Mount Routes
-app.get('/', function(req, res) {
-    res.render('index');
-});
+app.use('/', indexRouter);
 
 
 // Tell the App to Listen on Port 3000
