@@ -9,6 +9,8 @@ const express = require("express")
 const indexRouter = require("./routes/index")
 const todosRouter = require("./routes/todos")
 
+// import Morgan
+ const morgan = require('morgan')
 
 //************************** */
 // Create Application Object
@@ -28,6 +30,7 @@ app.set("view engine", "ejs")
 // Middleware
 //************************** */
 //************************** */
+// custom middleware for getting current time
 app.use((req, rest, next) => {
   console.log('Hello, intrepid learner')
   // add a time property to the request object
@@ -36,6 +39,13 @@ app.use((req, rest, next) => {
   // go to the next middleware function
   next()
 })
+
+// morgan for logging
+app.use(morgan('dev'))
+//urlencoded in order to receive data from forms
+app.use(express.urlencoded({extended:false}))
+// serves the public folder as static
+app.use(express.static('public'))
 
 
 // Routing
