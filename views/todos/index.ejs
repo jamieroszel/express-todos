@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Express To-Do</title>
-  </head>
-  <body>
-    <h1>Here is your ToDo list, as of <%= time %></h1>
+</head>
+<body>
+    <h1>Todos as of <%= time %></h1>
+    <h1>Here Are Your Todos</h1>
     <ul>
       <% todos.forEach(function(todo, idx) { %>
-      <li>
-        <a href="/todos/<%= idx %>"><%= todo.text %></a>
-        - <%= todo.done ? 'Done' : 'Not done' %>
-      </li>
+        <li>
+          <a href="/todos/<%= idx %>"><%= todo.text %></a>
+            - 
+          <%= todo.done ? 'Done' : 'Not done' %>
+        </li>
       <% }); %>
     </ul>
-  </body>
+    <a href="/todos/new">Add To-Do</a>
+</body>
 </html>
