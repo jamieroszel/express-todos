@@ -12,6 +12,10 @@ const todosRouter = require("./routes/todos")
 // import Morgan
  const morgan = require('morgan')
 
+// import method override
+const methodOverride = require
+("method-override")
+
 //************************** */
 // Create Application Object
 //************************** */
@@ -46,6 +50,8 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
 // serves the public folder as static
 app.use(express.static('public'))
+// enable override method
+app.use(methodOverride("_method"))
 
 
 // Routing
